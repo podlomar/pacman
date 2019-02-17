@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stage {
+  width: 1020px;
+  height: 510px;
+  background-image: url('img/tile.png');
+  position: relative;
+}
+
+.pac {
+  position: absolute;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 65px;
+}
+
+.item {
+  position: absolute;
+}
