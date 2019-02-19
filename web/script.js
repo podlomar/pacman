@@ -1,6 +1,6 @@
 const STAGE_WIDTH = 12;
 const STAGE_HEIGHT = 6;
-const CELL_SIZE = 85;
+const TILE_SIZE = 85;
 
 let scene = [
   {
@@ -97,8 +97,8 @@ const itemRender = (item) => {
   
   if(item.type === 'pac') {
     item.element.className = 'pac';
-    item.element.style.width = CELL_SIZE + 'px';
-    item.element.style.height = CELL_SIZE + 'px';
+    item.element.style.width = TILE_SIZE + 'px';
+    item.element.style.height = TILE_SIZE + 'px';
     item.element.addEventListener('click', () => {
       if(awakePac.phase === 'active') {
         awakePac.phase = 'asleep';
@@ -112,8 +112,8 @@ const itemRender = (item) => {
     });
   } else {
     item.element.className = 'item';
-    item.element.style.width = item.size.w * CELL_SIZE + 'px';
-    item.element.style.height = item.size.h * CELL_SIZE + 'px';
+    item.element.style.width = item.size.w * TILE_SIZE + 'px';
+    item.element.style.height = item.size.h * TILE_SIZE + 'px';
   }
 
   itemUpdate(item);
@@ -134,31 +134,31 @@ const itemUpdate = (item) => {
       );
     }
   
-    item.element.style.left = item.pos.x * CELL_SIZE + 'px';
-    item.element.style.top = item.pos.y * CELL_SIZE + 'px';  
+    item.element.style.left = item.pos.x * TILE_SIZE + 'px';
+    item.element.style.top = item.pos.y * TILE_SIZE + 'px';  
 
     if(item.mouth === 'open') {
       item.element.style.backgroundPositionX = '0px';
     } else {
-      item.element.style.backgroundPositionX = CELL_SIZE + 'px';
+      item.element.style.backgroundPositionX = TILE_SIZE + 'px';
     }
   
     if(item.dir === 'right') {
       item.element.style.backgroundPositionY = '0px';
     } else if(item.dir === 'left') {
-      item.element.style.backgroundPositionY = -CELL_SIZE + 'px';
+      item.element.style.backgroundPositionY = -TILE_SIZE + 'px';
     } else if(item.dir === 'down') {
-      item.element.style.backgroundPositionY = -2 * CELL_SIZE + 'px';
+      item.element.style.backgroundPositionY = -2 * TILE_SIZE + 'px';
     } else if(item.dir === 'up') {
-      item.element.style.backgroundPositionY = -3 * CELL_SIZE + 'px';
+      item.element.style.backgroundPositionY = -3 * TILE_SIZE + 'px';
     }
   }
   else {
     if(item.phase === 'active') {
       item.element.style.display = 'block';
       item.element.style.backgroundImage = 'url(img/' + item.type + '.png)';
-      item.element.style.left = item.pos.x * CELL_SIZE + 'px';
-      item.element.style.top = item.pos.y * CELL_SIZE + 'px';  
+      item.element.style.left = item.pos.x * TILE_SIZE + 'px';
+      item.element.style.top = item.pos.y * TILE_SIZE + 'px';  
     } else {
       item.element.style.display = 'none';
     }
